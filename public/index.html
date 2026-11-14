@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LudoArena</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>LudoArena</h1>
+  </header>
+  <main>
+    <section class="join-screen" id="joinScreen">
+      <div class="join-box">
+        <h2>Welcome to Ludo!</h2>
+        <input
+          type="text"
+          id="playerName"
+          placeholder="Enter your name"
+          maxlength="20"
+          autocomplete="nickname"
+        >
+        <button id="createButton" onclick="createRoom()">
+          Create New Room
+        </button>
+        <div class="or">OR</div>
+        <input
+          type="text"
+          id="roomCodeInput"
+          placeholder="Enter room code"
+          maxlength="6"
+        >
+        <button id="joinButton" onclick="joinRoom()">
+          Join Room
+        </button>
+        <p id="joinMessage"></p>
+        <p id="connectionStatus">Connecting to game server...</p>
+      </div>
+    </section>
+    <section class="game-screen" id="gameScreen">
+      <div class="game-top">
+        <h2>Room: <span id="roomCode"></span></h2>
+        <button class="copy-button" onclick="copyRoomCode()">
+          Copy Room Code
+        </button>
+      </div>
+      <h2 id="gameStatus">Waiting for players...</h2>
+      <div id="playerList"></div>
+      <div class="board">
+        <div id="boardGrid" class="board-grid"></div>
+        <div id="tokens" class="token-layer"></div>
+        <div class="center">
+          <div class="center-triangle red-triangle"></div>
+          <div class="center-triangle blue-triangle"></div>
+          <div class="center-triangle green-triangle"></div>
+          <div class="center-triangle yellow-triangle"></div>
+          <span>🏆</span>
+        </div>
+      </div>
+      <div class="dice-box">
+        <div id="dice">🎲</div>
+        <button id="rollButton" onclick="rollDice()" disabled>
+          Roll Dice
+        </button>
+      </div>
+      <p id="gameMessage">
+        Share your room code with your friends!
+      </p>
+      <div class="instructions">
+        <h3>How to Play</h3>
+        <ul>
+          <li>At least 2 players are needed to start.</li>
+          <li>Roll a 6 to bring a token out of home.</li>
+          <li>Click one of your tokens to move it.</li>
+          <li>Rolling a 6 gives you another turn.</li>
+          <li>Capture opponent tokens by landing on them.</li>
+          <li>Get all 4 tokens to the center to win.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2026 LudoArena | Multiplayer Game</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
